@@ -1,0 +1,72 @@
+body {
+color: blue;
+background-image: url("https://media.giphy.com/media/po1HNtTPPrx5e/giphy.gif")
+}
+
+h1 {
+  font-size: 55;
+  color: white ;
+}
+
+p{
+  color:white;
+}
+a {
+  display: inline-block;
+  position: relative;
+  color: #343434;
+  text-decoration: none;
+  padding: 0 6px;
+  &:before, &:after {
+    will-change: transform;
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+  }
+  &:before {
+    transition: 100ms ease-out 50ms;
+    transform-origin: 0 24px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: mix(#f1f1f1, #0077ff, 80%);
+  }
+  &:after {
+    transition: 50ms ease-out;
+    transform: scaleX(0);
+    transform-origin: left center;
+    bottom: 2px;
+    right: -12px;
+    border: 8px solid transparent;
+    border-left-color: mix(#f1f1f1, #0077ff, 60%);
+  }
+  &:hover {
+    &:before {
+      transition: 100ms ease-out;
+      transform: scaleY(.18);
+      background: mix(#f1f1f1, #0077ff, 60%);
+    }
+    &:after {
+      transition: 50ms ease-out 100ms;
+      transform: none;
+    }
+  }
+  &:active {
+    &:before {
+      transition: 100ms ease-in;
+      background: mix(#f1f1f1, #0077ff, 40%);
+    }
+    &:after {
+      transition: 100ms ease-in;
+      border-left-color: mix(#f1f1f1, #0077ff, 40%);
+    }
+  }
+}
+
+
+
+// Place all the styles related to the questions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
